@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VisionOverviewComponent } from './vision-overview.component';
+import { LefSideControlsComponent } from './lef-side-controls.component';
 
-describe('VisionOverviewComponent', () => {
-  let component: VisionOverviewComponent;
-  let fixture: ComponentFixture<VisionOverviewComponent>;
+describe('LefSideControlsComponent', () => {
+  let component: LefSideControlsComponent;
+  let fixture: ComponentFixture<LefSideControlsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VisionOverviewComponent ]
+      declarations: [ LefSideControlsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VisionOverviewComponent);
+    fixture = TestBed.createComponent(LefSideControlsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

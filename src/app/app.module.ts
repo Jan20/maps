@@ -12,18 +12,20 @@ import { ConfigModule } from './config/config.module'
 import { MaterialModule } from './config/material.module'
 import { LandingModule } from './landing/landing.module'
 import { MenuModule } from './menu/menu.module'
-import { SharedModule } from './shared/shared.module'
 import { UserModule } from './user/user.module'
-import { MapsModule } from './maps/maps.module'
+import { MapsModule } from './maps/maps.module';
+import { LefSideControlsComponent } from './lef-side-controls/lef-side-controls.component';
 
 @NgModule({
-  
+
   declarations: [
-    
+
     AppComponent,
-  
+
+    LefSideControlsComponent,
+
   ], imports: [
-    
+
     MaterialModule,
     BrowserModule,
     NgxChartsModule,
@@ -37,17 +39,16 @@ import { MapsModule } from './maps/maps.module'
     UserModule,
     MenuModule,
     LandingModule,
-    SharedModule,
     MapsModule,
 
   ], providers: [
-    
+
     {provide: APP_BASE_HREF, useValue : '/' }
-  
+
   ], bootstrap: [
-  
+
     AppComponent
-  
+
   ]
 })
 export class AppModule { }

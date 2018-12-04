@@ -7,16 +7,21 @@ mat-toolbar {
 	border-top: 1px solid rgb(237, 237, 237);
 	border-bottom: 1px solid rgb(237, 237, 237);
 
-}	
+}
 
 span {
 
 	font-family: 'Roboto', sans-serif;
-	color: rgb(128, 128, 128);
-    font-weight: 300;
+	color: white;
+  font-weight: 200;
 
 }
 
+.title{
+	color: white;
+	font-family: 'Courgette';
+	font-size: 40px;
+}
 
 @media (min-width: 600px) {
 	.mobile-menu {
@@ -32,7 +37,7 @@ span {
 
 .title {
 
-	color: rgb(128, 128, 128);
+	//color: rgb(128, 128, 128);
 	font-size: 24px;
 	font-weight: 100;
 
@@ -41,6 +46,7 @@ span {
 .user {
 
 	width: 72px;
+	background-color: white;
 
 }
 

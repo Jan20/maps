@@ -1,4 +1,4 @@
-<agm-map 
+<agm-map
   [latitude]="lat"
   [longitude]="lng"
   [zoom]="zoom"
@@ -6,7 +6,7 @@
   [zoomControl]="false"
   (mapClick)="mapClicked($event)">
 
-  <agm-marker 
+  <agm-marker
       *ngFor="let m of markers; let i = index"
       (markerClick)="clickedMarker(m.label, i)"
       [latitude]="m.lat"
@@ -14,14 +14,14 @@
       [label]="m.label"
       [markerDraggable]="m.draggable"
       (dragEnd)="markerDragEnd(m, $event)">
-      
+
     <agm-info-window>
-      <strong>InfoWindow content</strong>
+      <strong>Sex and Horror</strong>
     </agm-info-window>
-    
+
   </agm-marker>
-  
-  <agm-circle [latitude]="lat + 0.3" [longitude]="lng" 
+
+  <agm-circle [latitude]="lat + 0.3" [longitude]="lng"
       [radius]="5000"
       [fillColor]="'blue'"
       [circleDraggable]="true"
