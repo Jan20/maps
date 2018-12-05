@@ -52,3 +52,4 @@ import { LefSideControlsComponent } from './lef-side-controls/lef-side-controls.
   ]
 })
 export class AppModule { }
+export class PizzaPartyAppModule { }

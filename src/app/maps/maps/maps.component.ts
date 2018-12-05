@@ -90,5 +90,5 @@ interface marker {
 	lng: number;
 	label?: string;
 	draggable?: boolean;
-  icon?: object
+  iconUrl?:  object
 }
