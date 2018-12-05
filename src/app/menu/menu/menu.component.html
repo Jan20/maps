@@ -1,10 +1,9 @@
-<mat-toolbar color='warn' style="background-color:MidnightBlue;">
+<mat-toolbar color='warn'  style="background-color:MidnightBlue; height:50px; position:fixed; z-index:10; ">
 
   <div class="no-class">
     <button class="title" mat-menu-item  (click)='switchToLandingPage()'><span>{{title}}</span></button>
   </div>
 
-  <!--<span class='spacer'></span>-->
 
   <div class='desktop-menu'  *ngFor="let item of items">
     <button mat-menu-item (click)="navigateToMenuEntry(item)">
@@ -12,15 +11,25 @@
     </button>
   </div>
 
+  <!-- search form -->
+  <div class="" ng-app="app" ng-controller="index">
+    <div class="text-wrapper">
+      <input id="search_input" type="text" class="input" ng-model="searchBox" placeholder="Search">
+    </div>
+  </div>
+
+  <span class='spacer'></span>
+
   <div class='desktop-menu'>
     <button mat-menu-item (click)="navigateToMenuEntry(user)" class='user'>
       <mat-icon>account_circle</mat-icon>
     </button>
   </div>
 
-  <button class='mobile-menu' mat-icon-button [matMenuTriggerFor]="menu">
+
+  <!--<button class='mobile-menu' mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon>more_vert</mat-icon>
-  </button>
+  </button>-->
 
   <mat-menu #menu="matMenu">
     <div *ngFor="let item of items">
