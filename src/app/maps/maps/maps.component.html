@@ -2,6 +2,7 @@
   [latitude]="lat"
   [longitude]="lng"
   [zoom]="zoom"
+
   [disableDefaultUI]="false"
   [zoomControl]="false"
   (mapClick)="mapClicked($event)">
@@ -12,6 +13,7 @@
       [latitude]="m.lat"
       [longitude]="m.lng"
       [label]="m.label"
+      [iconUrl] = "m.iconUrl"
       [markerDraggable]="m.draggable"
       (dragEnd)="markerDragEnd(m, $event)">
 
@@ -21,11 +23,11 @@
 
   </agm-marker>
 
-  <agm-circle [latitude]="lat + 0.3" [longitude]="lng"
+  <!--<agm-circle [latitude]="lat + 0.3" [longitude]="lng"
       [radius]="5000"
       [fillColor]="'blue'"
       [circleDraggable]="true"
       [editable]="true">
-  </agm-circle>
+  </agm-circle>-->
 
 </agm-map>

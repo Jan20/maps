@@ -19,6 +19,7 @@ export class MapsComponent implements OnInit {
    // initial center position for the map
   public lat: number = 51.673858;
   public lng: number = 7.815982;
+
   //private icon: object = new google.maps.MarkerImage("http://maps.google.com/mapfiles/ms/micons/blue.png",
     //                    new google.maps.Size(32, 32), new google.maps.Point(0, 0),new google.maps.Point(16, 32));
 
@@ -54,7 +55,13 @@ export class MapsComponent implements OnInit {
       lat: $event.coords.lat,
       lng: $event.coords.lng,
       draggable: true,
-      //icon: icon
+      iconUrl: {
+                url: 'http://maps.google.com/mapfiles/ms/micons/blue.png',
+                scaledSize: {
+                    width: 30,
+                    height: 30
+                }
+            }
 
     });
 
@@ -73,18 +80,6 @@ export class MapsComponent implements OnInit {
 		  label: 'S',
 		  draggable: true
 	  },
-	  {
-		  lat: 51.373858,
-		  lng: 7.215982,
-		  label: 'T',
-		  draggable: true
-	  },
-	  {
-		  lat: 51.723858,
-		  lng: 7.895982,
-		  label: 'P',
-		  draggable: true
-	  }
   ]
 }
 
