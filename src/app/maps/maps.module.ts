@@ -4,6 +4,7 @@ import { MapsComponent } from './maps/maps.component'
 import { BrowserModule } from '@angular/platform-browser'
 import { AgmCoreModule } from '@agm/core'
 import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material'
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/ma
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    //MatSelectModule,    
+    //MatSelectModule,
+    FormsModule,
     BrowserModule,AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBulEdkZCSFbhlGVcjrZqOo95Ks5cirpuY'
     })

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { NgForm } from '@angular/forms'
 //import { GoogleMap, GoogleMapsEvent, GoogleMapsLatLng }
 
 @Component({
@@ -20,16 +21,11 @@ export class MapsComponent implements OnInit {
   public lat: number = 51.673858;
   public lng: number = 7.815982;
 
-  //private icon: object = new google.maps.MarkerImage("http://maps.google.com/mapfiles/ms/micons/blue.png",
-    //                    new google.maps.Size(32, 32), new google.maps.Point(0, 0),new google.maps.Point(16, 32));
 
   //////////////////
   // Constructors //
   //////////////////
-  public constructor() {
-
-
-  }
+  public constructor() {}
 
   ngOnInit(): void {
 
@@ -72,6 +68,14 @@ export class MapsComponent implements OnInit {
 
   }
 
+
+  saveNewMarker(newMarker: NgForm): void {
+
+     console.log(newMarker.value);
+
+  }
+
+
   markers: marker[] = [
 	  {
 		  lat: 51.673858,
@@ -80,7 +84,10 @@ export class MapsComponent implements OnInit {
 		  draggable: true
 	  },
   ]
-}
+
+
+
+} // MapsCompnenrt
 
 // just an interface for type safety.
 interface marker {
