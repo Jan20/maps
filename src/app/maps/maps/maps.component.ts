@@ -62,7 +62,6 @@ export class MapsComponent implements OnInit {
                     height: 30
                 }
             }
-
     });
 
   }

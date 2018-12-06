@@ -18,7 +18,40 @@
       (dragEnd)="markerDragEnd(m, $event)">
 
     <agm-info-window>
-      <strong>Sex and Horror</strong>
+      <!-- <strong>Sex and Horror</strong> -->
+
+      <!-- add-new-marker form-->
+      <div id="add_new_marker">
+
+        <form class="">
+          <fieldset>
+            <legend><b>Post a new Marker!</b></legend>
+              <mat-form-field class="">
+                <b><input matInput placeholder="title" value="" required></b>
+              </mat-form-field>
+              <br>
+              <mat-form-field class="">
+                <b><textarea matInput id="marker_body" rows="5" cols="8" placeholder="Leave a comment"></textarea></b>
+              </mat-form-field>
+              <br>
+
+              <mat-form-field class="">
+                  <b>youtube link: </b><input matInput id="youtube_url" type="text" size="37">
+                  <div title="upload image or video" style="float:left;"><br>
+                    <input id="uploaded_files" type="file" name="file" accept="image/*,video/*"> <!--  -->
+                  </div>
+              </mat-form-field>
+              <br>
+
+              <div id="add_marker_btns" style="float:left;">
+                <button mat-button type="submit" class="btn" style="background-color:DodgerBlue; color:white">save</button>
+                <button mat-button type="button" class="btn" onclick="" style="background-color:Lavender; border:1px Solid Thistle;">cancel</button>
+              </div>
+          </fieldset>
+        </form>
+
+      </div>
+
     </agm-info-window>
 
   </agm-marker>

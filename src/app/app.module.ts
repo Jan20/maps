@@ -21,16 +21,15 @@ import { LefSideControlsComponent } from './lef-side-controls/lef-side-controls.
   declarations: [
 
     AppComponent,
-
     LefSideControlsComponent,
 
   ], imports: [
 
     MaterialModule,
     BrowserModule,
-    NgxChartsModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxChartsModule,
     Ng2GoogleChartsModule,
     HttpModule,
     HttpClientModule,
@@ -52,4 +51,4 @@ import { LefSideControlsComponent } from './lef-side-controls/lef-side-controls.
   ]
 })
 export class AppModule { }
-export class PizzaPartyAppModule { }
+//export class PizzaPartyAppModule { }

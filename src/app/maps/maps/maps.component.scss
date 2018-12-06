@@ -9,3 +9,17 @@ agm-map {
   height: 100%;
 
 }
+
+textarea{
+
+  max-width: 200px;
+
+}
+
+#marker_body{
+  border: none;
+  background-color: #F0F8FF;
+  padding: 8px 10px;
+  white-space: pre-line;
+  /*border: 1px solid  black;*/
+}
