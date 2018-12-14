@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit {
   ///////////////
   // Variables //
   ///////////////
-  public title: string = 'Mapster'
+  public title: string = 'Deer'
   public items: MenuItem[]
   public user: MenuItem
 

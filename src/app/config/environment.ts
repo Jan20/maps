@@ -9,12 +9,11 @@ export const environment = {
 
         firebaseConfig: {
 
-                apiKey: "AIzaSyBgh9v2pbNnN9KNdKuQAlhkgKHmR9JzDAY",
-                authDomain: "maps-013.firebaseapp.com",
-                databaseURL: "https://maps-013.firebaseio.com",
-                projectId: "maps-013",
-                storageBucket: "maps-013.appspot.com",
-                messagingSenderId: "982774990756"
-            
+                apiKey: "AIzaSyCbJNI9ZkdYU7n4Fud40C41ZBSyOC83jmc",
+                authDomain: "maps-a82a0.firebaseapp.com",
+                databaseURL: "https://maps-a82a0.firebaseio.com",
+                projectId: "maps-a82a0",
+                storageBucket: "maps-a82a0.appspot.com",
+                messagingSenderId: "718731928515"            
         }
 }

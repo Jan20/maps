@@ -1,0 +1,59 @@
+<app-toolbar></app-toolbar>
+
+<agm-map
+  [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zoom"
+  [disableDefaultUI]="false"
+  [zoomControl]="false"
+  [mapTypeControl]="false"
+  [mapTypeId]="'terrain'"
+  (mapClick)="mapClicked($event)">
+
+  <agm-marker
+      *ngFor="let m of markers; let i = index"
+      (markerClick)="clickedMarker(m.label, i)"
+      [latitude]="m.lat"
+      [longitude]="m.lng"
+      [label]="m.label"
+      [markerDraggable]="m.draggable"
+      [iconUrl]="m.icon"
+      (dragEnd)="markerDragEnd(m, $event)">
+
+
+    <agm-info-window>Heyx
+    </agm-info-window>
+
+  </agm-marker>
+
+  <!-- <agm-circle [latitude]="lat + 0.3" [longitude]="lng"
+      [radius]="5000"
+      [fillColor]="'blue'"
+      [circleDraggable]="true"
+      [editable]="true">
+  </agm-circle> -->
+
+</agm-map>
+
+
+
+<!-- <sebm-google-map 
+[latitude]="lat"
+[longitude]="lng"
+[zoom]="zoom"
+[disableDefaultUI]="false"
+[zoomControl]="false">
+
+<sebm-google-map-marker 
+    *ngFor="let m of markers; let i = index"
+    [latitude]="m.lat"
+    [longitude]="m.lng"
+    [iconUrl]="m.iconUrl">
+    
+  <sebm-google-map-info-window>
+    <strong>InfoWindow content</strong>
+  </sebm-google-map-info-window>
+  
+</sebm-google-map-marker>
+
+</sebm-google-map> -->
