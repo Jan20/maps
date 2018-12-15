@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
-import { MarkerService } from '../../shared/services/marker.service';
-//import { GoogleMap, GoogleMapsEvent, GoogleMapsLatLng }
+import { MarkerService } from '../../marker/services/marker.service'
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',

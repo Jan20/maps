@@ -1,0 +1,28 @@
+<div *ngIf='activeFeature.id !== undefined && activeFeature.id !== 0; then active else inactive'></div>
+
+<!-- User NOT logged in -->
+<ng-template #inactive>
+  <div class='toolbar'>
+    <button mat-button (click)=selectFeature(feature.id) *ngFor="let feature of features; let i = index">
+      <mat-icon>{{feature.icon}}</mat-icon>
+      <h1>{{feature.description}}</h1>
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #active>
+  <div class='toolbar-active'>
+    <button mat-button (click)=selectFeature(feature.id) *ngFor="let feature of features; let i = index">
+      <mat-icon>{{feature.icon}}</mat-icon>
+      <h1>{{feature.description}}</h1>
+    </button>
+  </div>
+</ng-template>
+
+  
+<div class='feature-context' *ngIf='activeFeature.id !== undefined && activeFeature.id !== 0'>
+
+    <app-friend *ngIf='activeFeature.selector === "app-friend"'></app-friend>
+    <app-marker *ngIf='activeFeature.selector === "app-marker"'></app-marker>
+
+</div>

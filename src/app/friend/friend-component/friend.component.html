@@ -1,0 +1,11 @@
+<mat-list>
+  <h3 mat-subheader>Members</h3>
+  <mat-list-item *ngFor="let user of users">
+    <mat-icon mat-list-icon><img [src]='user.photoURL' class='profile-picture'></mat-icon>
+    <h4 mat-line>{{user.displayName}}</h4>
+    <p mat-line> {{user.email}}</p>
+    <button mat-button (click)=addFriend(user.uid)>Add</button>
+  </mat-list-item>
+  <!-- <mat-divider></mat-divider> -->
+  <!-- <h3 mat-subheader>Notes</h -->
+</mat-list>

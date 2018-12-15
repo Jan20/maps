@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms'
-import { MarkerService } from '../../shared/services/marker.service';
-import { Marker } from '../../shared/interfaces/marker'
+import { MarkerService } from '../services/marker.service';
+import { FormControl } from '@angular/forms';
+import { Marker } from '../interfaces/marker';
+import { ToolbarService } from '../../toolbar/services/toolbar.service';
+
 
 @Component({
-  selector: 'app-toolbar',
-  templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.scss']
+  selector: 'app-marker',
+  templateUrl: './marker.component.html',
+  styleUrls: ['./marker.component.scss']
 })
-export class ToolbarComponent implements OnInit {
+export class MarkerComponent implements OnInit {
 
   ///////////////
   // Variables //
   ///////////////
-  public showMarkerView: boolean = false
-  public toolbarIsActive: boolean = true
   public title: string = ''
   public story: string = ''
   public markers: Marker[] = []
@@ -25,29 +25,25 @@ export class ToolbarComponent implements OnInit {
   public titleFormControl: FormControl = new FormControl()
   public storyFormControl: FormControl = new FormControl()
 
+
   constructor(
 
-    private markerService: MarkerService
+    private markerService: MarkerService,
+    private toolbarService: ToolbarService
 
   ) { }
 
   ngOnInit() {
 
-
     this.titleFormControl.valueChanges.subscribe(title => this.title = title)
     this.storyFormControl.valueChanges.subscribe(story => this.story = story)
-
 
   }
 
 
-  ///////////////
-  // Functions //
-  ///////////////
   public createMarker() {
 
-    this.showMarkerView ? this.showMarkerView = false : this.showMarkerView = true
-    this.showMarkerView ? this.toolbarIsActive = false : this.toolbarIsActive = true
+    this.toolbarService.toolbarSubject.next(null)
 
   }
 
@@ -62,9 +58,8 @@ export class ToolbarComponent implements OnInit {
 
   public cancel(): void {
 
-
+    this.toolbarService.toolbarSubject.next({id: 0})
 
   }
 
 }
-

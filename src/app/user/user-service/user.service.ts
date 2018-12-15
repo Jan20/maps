@@ -19,6 +19,7 @@ export class UserService {
   // Subjects //
   //////////////
   public userSubject: Subject<User> = new Subject<User>()
+  public usersSubject: Subject<User[]> = new Subject<User[]>()
 
   //////////////////
   // Constructors //
@@ -100,6 +101,14 @@ export class UserService {
     this.userSubject.next({uid: '', email: ''})
     this.angularFireAuth.auth.signOut().then( () => this.router.navigate(['/']))
   
+  }
+
+  public fetchUsers(): void {
+
+    const ref = this.angularFireStore.collection<User>('users')
+
+    ref.valueChanges().subscribe(users => this.usersSubject.next(users))
+
   }
 
 }

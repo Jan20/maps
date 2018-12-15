@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 // Services
 import { GenericService } from './services/generic-service'
-import { MarkerService } from './services/marker.service'
 
 @NgModule({
   imports: [
@@ -17,7 +16,6 @@ import { MarkerService } from './services/marker.service'
   ], providers: [
 
     GenericService,
-    MarkerService
 
   ], exports: [
 

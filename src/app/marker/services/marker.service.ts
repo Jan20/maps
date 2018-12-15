@@ -4,7 +4,6 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { UserService } from '../../user/user-service/user.service';
 import { Marker } from '../interfaces/marker'
 import { Subject } from 'rxjs';
-import { async } from '@firebase/util';
 
 @Injectable({
   providedIn: 'root'
