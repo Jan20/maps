@@ -13,23 +13,27 @@ import { MaterialModule } from './config/material.module'
 import { LandingModule } from './landing/landing.module'
 import { MenuModule } from './menu/menu.module'
 import { UserModule } from './user/user.module'
-import { MapsModule } from './maps/maps.module';
-import { LefSideControlsComponent } from './lef-side-controls/lef-side-controls.component';
+import { MapModule } from './map/map.module';
+import { ToolbarModule } from './toolbar/toolbar.module';
+import { AngularFireModule } from 'angularfire2';
+
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { SharedModule } from './shared/shared.module'
 
 @NgModule({
 
   declarations: [
 
     AppComponent,
-    LefSideControlsComponent,
 
   ], imports: [
 
     MaterialModule,
     BrowserModule,
+    NgxChartsModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxChartsModule,
     Ng2GoogleChartsModule,
     HttpModule,
     HttpClientModule,
@@ -38,7 +42,12 @@ import { LefSideControlsComponent } from './lef-side-controls/lef-side-controls.
     UserModule,
     MenuModule,
     LandingModule,
-    MapsModule,
+    MapModule,
+    ToolbarModule,
+    BrowserModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    SharedModule
 
   ], providers: [
 
@@ -51,4 +60,3 @@ import { LefSideControlsComponent } from './lef-side-controls/lef-side-controls.
   ]
 })
 export class AppModule { }
-//export class PizzaPartyAppModule { }

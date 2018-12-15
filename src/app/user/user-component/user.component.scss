@@ -1,0 +1,19 @@
+.user-button {
+
+    position: absolute;
+    margin: 10px;
+    margin-left: calc(100vw - 50px);
+    z-index: 10;
+
+}
+
+.profile-picture {
+
+    margin-top: -8px;
+    margin-left: 0px;
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    border: 2px solid white;
+
+}
