@@ -14,7 +14,7 @@ export class ToolbarComponent implements OnInit {
   // Variables //
   ///////////////
   public showMarkerView: boolean = false
-  public toolbarIsActive: boolean = false
+  public toolbarIsActive: boolean = true
   public title: string = ''
   public story: string = ''
   public markers: Marker[] = []
@@ -46,8 +46,8 @@ export class ToolbarComponent implements OnInit {
   ///////////////
   public createMarker() {
 
-    this.showMarkerView === true ? this.showMarkerView = false : this.showMarkerView = true
-    this.showMarkerView === true ? this.toolbarIsActive = false : this.toolbarIsActive = true
+    this.showMarkerView ? this.showMarkerView = false : this.showMarkerView = true
+    this.showMarkerView ? this.toolbarIsActive = false : this.toolbarIsActive = true
 
   }
 

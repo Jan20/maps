@@ -4,7 +4,7 @@ import * as firebase from 'firebase/app'
 import { AngularFireAuth } from 'angularfire2/auth'
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore'
 import { Observable } from 'rxjs'
-import { User } from '../user-model/user'
+import { User } from '../interfaces/user'
 import { Subject } from 'rxjs'
 
 @Injectable()
@@ -13,8 +13,12 @@ export class UserService {
   ///////////////
   // Variables //
   ///////////////
-  private user: User
-  private authState: Observable<firebase.User>
+  public user: User = {uid: '', email:'', photoURL:'', displayName: ''}
+
+  //////////////
+  // Subjects //
+  //////////////
+  public userSubject: Subject<User> = new Subject<User>()
 
   //////////////////
   // Constructors //
@@ -27,14 +31,18 @@ export class UserService {
   
   ) {
   
+    this.userSubject.next(this.user)
+
     this.angularFireAuth.authState.subscribe(user => {
   
+      console.log(user)
       if (user) {
   
-        return this.angularFireStore.doc<User>(`users/${user.uid}`).valueChanges().subscribe( newUser => {
-  
-          this.setUser(new User(newUser.userId, newUser.email, newUser.photoURL, newUser.displayName))
-  
+        return this.angularFireStore.doc<User>(`users/${user.uid}`).valueChanges().subscribe(user => {
+          
+          this.user = user
+          this.userSubject.next(user)
+            
         })
   
       } else {
@@ -56,62 +64,42 @@ export class UserService {
 
   private oAuthLogin(provider) {
   
-    return this.angularFireAuth.auth.signInWithPopup(provider).then(credential => this.updateUserData(credential.user))
+    return this.angularFireAuth.auth.signInWithPopup(provider).then(credential => {
+
+      const user: User = {
+
+        uid: credential.user.uid,
+        email: credential.user.email,
+        photoURL: credential.user.photoURL,
+        displayName: credential.user.displayName
+
+      }
+
+      console.log('_______________________________')
+      console.log(user)
+
+      this.updateUserData(user)
+      this.user = user
+      this.userSubject.next(user)
+
+    })
 
   }
 
-  private updateUserData(user) {
+  private updateUserData(user: User) {
     
-    const userRef: AngularFirestoreDocument<any> = this.angularFireStore.doc(`users/${user.uid}`)
+    const ref: AngularFirestoreDocument<User> = this.angularFireStore.doc(`users/${user.uid}`)
     
-    const data: any = {
-    
-      userId: user.uid,
-      email: user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL,
-    
-    }
-    
-    this.setUser(new User(user.uid, user.email, user.displayName, user.photoURL))
-    
-    return userRef.set(data, { merge: true })
+    ref.set(user, { merge: true })
   
   }
 
   public signOut() {
     
     this.user = null
+    this.userSubject.next({uid: '', email: ''})
     this.angularFireAuth.auth.signOut().then( () => this.router.navigate(['/']))
   
-  }
-
-  /////////////
-  // Getters //
-  /////////////
-  async getUser(): Promise<any> {
-    
-    if (this.user) {
-    
-      return new Promise(resolve => resolve(this.user))
-    
-    } 
-    
-    return new Promise( resolve => {
-  
-      this.angularFireAuth.authState.subscribe(user => this.angularFireStore.doc<User>(`users/${user.uid}`).valueChanges().subscribe( activeUser => {
-        this.user = activeUser
-        resolve(activeUser)}))
-
-    })
-
-  }
-
-  /////////////
-  // Setters //
-  /////////////
-  public setUser(user: User): void {
-    this.user = user
   }
 
 }

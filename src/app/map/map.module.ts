@@ -10,7 +10,7 @@ import { ToolbarModule } from '../toolbar/toolbar.module';
   imports: [
     CommonModule,
     BrowserModule,AgmCoreModule.forRoot({
-      apiKey: 'Add API Key here'
+      apiKey: 'API KEY HERE'
     }),
     ToolbarModule,
   ],

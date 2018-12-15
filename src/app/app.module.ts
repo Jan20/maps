@@ -14,7 +14,6 @@ import { LandingModule } from './landing/landing.module'
 import { MenuModule } from './menu/menu.module'
 import { UserModule } from './user/user.module'
 import { MapModule } from './map/map.module';
-import { ProfileComponent } from './profile/profile.component';
 import { ToolbarModule } from './toolbar/toolbar.module';
 import { AngularFireModule } from 'angularfire2';
 
@@ -27,9 +26,6 @@ import { SharedModule } from './shared/shared.module'
   declarations: [
 
     AppComponent,
-
-
-    ProfileComponent,
 
   ], imports: [
 

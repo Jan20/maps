@@ -14,11 +14,11 @@ export class MapComponent implements OnInit {
   ///////////////
 
   // google maps zoom level
-  public zoom: number = 8
+  public zoom: number = 15
 
    // initial center position for the map
-  public lat: number = 51.673858;
-  public lng: number = 7.815982;
+  public latitude: number = 0;
+  public longitude: number = 0;
   //private icon: object = new google.maps.MarkerImage("http://maps.google.com/mapfiles/ms/micons/blue.png",
     //                    new google.maps.Size(32, 32), new google.maps.Point(0, 0),new google.maps.Point(16, 32));
 
@@ -92,6 +92,17 @@ export class MapComponent implements OnInit {
       })
 
     })
+
+    console.log('Hello')
+
+    navigator.geolocation.getCurrentPosition(position => {
+      console.log(position.coords)
+      console.log(position.coords.longitude)
+      this.longitude = position.coords.longitude
+      this.latitude = position.coords.latitude
+
+    });
+
 
   }
 

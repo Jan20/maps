@@ -1,0 +1,19 @@
+<!-- {{user | json}}. -->
+
+<div *ngIf='user.uid != ""; then authenticated else guest'></div>
+
+<!-- User NOT logged in -->
+<ng-template #guest>
+  <button mat-mini-fab color="primary" (click)="navigateToUserLogin()" class='user-button'>
+    <mat-icon>account_circle</mat-icon>
+  </button>
+</ng-template>
+
+<!-- User logged in -->
+<ng-template #authenticated>
+  <button mat-mini-fab (click)="navigateToUserLogin()" class='user-button'>
+    <img [src]='user.photoURL' class='profile-picture'>
+  </button>
+</ng-template>
+
+

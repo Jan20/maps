@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 
 // Services
 import { UserService } from '../user-service/user.service';
 import { FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
-import { User } from '../user-model/user';
+import { User } from '../interfaces/user';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,7 +16,7 @@ export class UserLoginComponent implements OnInit {
   ///////////////
   // Variables //
   ///////////////
-  public user: User = new User('', '', '', '')
+  public user: User = {uid: '', email: '', photoURL: '', displayName: ''}
 
   //////////////////
   // Constructors //
@@ -27,18 +26,34 @@ export class UserLoginComponent implements OnInit {
     public userService: UserService,
     public router: Router,
 
-  ) {}
+  ) {
 
-  public async ngOnInit(): Promise<void> {    
+    this.userService.userSubject.subscribe(user => this.user = user)
+
+  }
+
+  ngOnInit() {
+
+    this.userService.user = this.user
+
+    console.log(this.user)
     
-    await this.userService.getUser().then(user => this.user = user)
+    this.userService.userSubject.subscribe(user => {
+      
+      this.user = user
+      console.log(this.user)
+      
+      this.user.uid !== '' ? this.switchToMainView() : null
+    
+    })
   
   }
 
-  public switchToAdmin(): void {
+  private switchToMainView(): void {
 
-    this.router.navigate(['admin/markets'])
+    this.router.navigate(['/'])
 
   }
+
 
 }

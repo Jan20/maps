@@ -1,15 +1,25 @@
-<div class='toolbar' *ngIf='toolbarIsActive === false'>
+<div *ngIf='toolbarIsActive; then active else inactive'></div>
 
-  <button mat-fab (click)=createMarker()><mat-icon>upload</mat-icon></button>
+<!-- User NOT logged in -->
+<ng-template #active>
+  <div class='toolbar'>
+    <button mat-button (click)=createMarker()>
+      <mat-icon>location_on</mat-icon> 
+      <h1>Add Marker</h1>
+    </button>
+  </div>
+</ng-template>
 
-</div>
+<ng-template #inactive>
+  <div class='toolbar-active'>
+    <button mat-button (click)=createMarker()>
+      <mat-icon>location_on</mat-icon>
+      <h1>Add Marker</h1>
+    </button>
+  </div>
+</ng-template>
 
-<div class='toolbarIsActive' *ngIf='toolbarIsActive'>
-
-  <button mat-fab (click)=createMarker()><mat-icon>upload</mat-icon></button>
-
-</div>
-
+  
 
 <div class='marker-context' *ngIf='showMarkerView'>
 

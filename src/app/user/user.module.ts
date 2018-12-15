@@ -1,34 +1,36 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-
-// Angular Material
-import { MaterialModule } from '../config/material.module'
-import { MatAutocompleteModule } from '@angular/material/autocomplete'
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { MatSidenavModule } from '@angular/material/sidenav'
-
-// Login
+import { MaterialModule } from '../config/material.module';
+import { UserComponent } from './user-component/user.component';
 import { UserLoginComponent } from './user-login/user-login.component';
-
-// Services
 import { UserService } from './user-service/user.service';
 
 @NgModule({
   imports: [ 
+
     CommonModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
     MaterialModule,
+
   ],
   declarations: [
-    UserLoginComponent
+
+    UserLoginComponent,
+    UserComponent
+
   ],
   providers: [
+
     UserService,
+
   ],
   exports: [
+
+    UserComponent
+
   ]
 })
 export class UserModule { }

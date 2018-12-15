@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from '../../user/user-model/user';
+import { User } from '../../user/interfaces/user';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { UserService } from '../../user/user-service/user.service';
 import { Marker } from '../interfaces/marker'
@@ -45,15 +45,16 @@ export class MarkerService {
   
   public async fetchMarkers(): Promise<void> {
 
-    await this.userService.getUser().then( user => this.user = user)
-    this.angularFirestore.collection<Marker>(`/users/${this.user.userId}/markers/`).valueChanges().subscribe(markers => this.markersSubject.next(markers))
+    this.userService.userSubject.subscribe(user => {
+
+      this.angularFirestore.collection<Marker>(`/users/${user.uid}/markers/`).valueChanges().subscribe(markers => this.markersSubject.next(markers))
+
+    })
 
   }
 
   public async add(marker: Marker): Promise<void> {
     
-    await this.userService.getUser().then(user => this.user = user)
-
     const date: number = new Date().getTime()
 
     marker.date = date
@@ -72,7 +73,7 @@ export class MarkerService {
   
         console.log(marker)
   
-        this.angularFirestore.collection(`/users/${this.user.userId}/markers`).add(marker)
+        this.angularFirestore.collection(`/users/${this.userService.user.uid}/markers`).add(marker)
   
       });
 
