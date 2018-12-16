@@ -21,7 +21,10 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { SharedModule } from './shared/shared.module'
 import { FriendModule } from './friend/friend.module'
-import { MarkerModule } from './marker/marker.module' 
+import { MarkerModule } from './marker/marker.module'
+
+
+
 @NgModule({
 
   declarations: [

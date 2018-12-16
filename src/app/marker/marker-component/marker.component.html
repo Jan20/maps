@@ -1,11 +1,16 @@
+<mat-list>
+  <h3 mat-subheader>New Marker</h3>
+</mat-list>
+
 <form class="marker-form">
 
-  <h1>Add Marker</h1>
-
   <mat-form-field class='full-width'><input matInput placeholder='Titel' [formControl]='titleFormControl'></mat-form-field>
-  <mat-form-field class='full-width'><input matInput placeholder='Write a story' [formControl]='storyFormControl'></mat-form-field>
+  <mat-form-field class='full-width large-height'>
+    <textarea class='large-height' matInput placeholder='Write a Story' [formControl]='storyFormControl'></textarea>
+  </mat-form-field>
+
+  <file-upload></file-upload>
 
   <button mat-raised-button color="primary" (click)='add()'>Add Marker</button>
-  <button mat-raised-button color="warn" (click)='cancel()'>Cancel</button>
 
 </form>

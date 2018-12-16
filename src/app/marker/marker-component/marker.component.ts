@@ -56,10 +56,5 @@ export class MarkerComponent implements OnInit {
     
   }
 
-  public cancel(): void {
-
-    this.toolbarService.toolbarSubject.next({id: 0})
-
-  }
 
 }

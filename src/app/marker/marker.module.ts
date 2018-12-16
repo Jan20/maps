@@ -5,11 +5,20 @@ import { MarkerService } from './services/marker.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MaterialModule } from '../config/material.module';
+import { DropZoneDirective } from './directives/drop-zone.directive';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { FileSizePipe } from './pipes/file-size.pipe';
 
 @NgModule({
   declarations: [
     
-    MarkerComponent
+    MarkerComponent,
+    
+    DropZoneDirective,
+    
+    FileUploadComponent,
+    
+    FileSizePipe
   
   ],
   imports: [

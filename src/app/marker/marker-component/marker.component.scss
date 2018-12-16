@@ -5,12 +5,25 @@
     min-width: 150px;
     max-width: 500px;
     width: 100%;
-
+    margin-top: 0px;
+    
 }
 
 
 .example-full-width {
     
     width: 100%;
+
+}
+
+textarea {
+
+    height: 5hv;
+
+}
+
+.large-height {
+
+    height: 60px !important; 
 
 }

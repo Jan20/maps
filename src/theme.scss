@@ -2,7 +2,7 @@
 $mat-white: (
     50: #ffffff,
     100: #ffcdd2,
-    200: #ef9a9a,
+    200: #FD8689,
     300: #e57373,
     400: #ef5350,
     500: #f44336,
@@ -15,20 +15,20 @@ $mat-white: (
     A400: #ff1744,
     A700: #d50000,
     contrast: (
-      50: grey,
-      100: grey,
-      200: grey,
-      300: grey,
-      400: grey,
-      500: grey,
-      600: grey,
-      700: grey,
-      800: grey,
-      900: grey,
-      A100: grey,
-      A200: grey,
-      A400: grey,
-      A700: grey,
+      50: white,
+      100: white,
+      200: white,
+      300: white,
+      400: white,
+      500: white,
+      600: white,
+      700: white,
+      800: white,
+      900: white,
+      A100: white,
+      A200: white,
+      A400: white,
+      A700: white,
     )
 );
 // below creates a primary palette with three shades of blue
@@ -37,7 +37,7 @@ $mat-white: (
 @import '~@angular/material/theming';
 @include mat-core();
 
-$flow-app-primary: mat-palette($mat-grey, 500);
+$flow-app-primary: mat-palette($mat-white, 200);
 $flow-app-accent:  mat-palette($mat-blue, 500);
 $flow-app-warn:    mat-palette($mat-white, 50);
 
