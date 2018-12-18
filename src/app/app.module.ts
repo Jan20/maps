@@ -15,6 +15,13 @@ import { MenuModule } from './menu/menu.module'
 import { UserModule } from './user/user.module'
 import { MapsModule } from './maps/maps.module';
 import { LefSideControlsComponent } from './lef-side-controls/lef-side-controls.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
+//import { environment } from '../environments/environment';
+
+
 
 @NgModule({
 
@@ -22,6 +29,7 @@ import { LefSideControlsComponent } from './lef-side-controls/lef-side-controls.
 
     AppComponent,
     LefSideControlsComponent,
+    ProfileComponent,
 
   ], imports: [
 
@@ -39,6 +47,8 @@ import { LefSideControlsComponent } from './lef-side-controls/lef-side-controls.
     MenuModule,
     LandingModule,
     MapsModule,
+    //AngularFireModule.initializeApp(environment.firebase, 'maps'),
+    AngularFireDatabaseModule,
 
   ], providers: [
 

@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit {
   ///////////////
   // Variables //
   ///////////////
-  public title: string = 'Mapster'
+  public title: string = 'Evvy?'
   public items: MenuItem[]
   public user: MenuItem
 
@@ -28,6 +28,7 @@ export class MenuComponent implements OnInit {
   ) {
 
     this.items = []
+    /*
     this.items.push(
 
        new MenuItem('profile', 'lock_open', '/predictions'),
@@ -38,6 +39,7 @@ export class MenuComponent implements OnInit {
        new MenuItem('messages', 'grain', '/markets'),
 
     )
+    */
 
     this.user = new MenuItem('User', 'account_circle', '/user')
 

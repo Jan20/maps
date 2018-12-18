@@ -5,12 +5,6 @@
   </div>
 
 
-  <div class='desktop-menu'  *ngFor="let item of items">
-    <button mat-menu-item (click)="navigateToMenuEntry(item)">
-      <span>{{item.name}}</span>
-    </button>
-  </div>
-
   <!-- search form -->
   <div class="" ng-app="app" ng-controller="index">
     <div class="text-wrapper">
@@ -37,5 +31,14 @@
       </button>
     </div>
   </mat-menu>
+
+
+  <!--
+   <div class='desktop-menu'  *ngFor="let item of items">
+     <button mat-menu-item (click)="navigateToMenuEntry(item)">
+       <span>{{item.name}}</span>
+     </button>
+   </div>
+   -->
 
 </mat-toolbar>

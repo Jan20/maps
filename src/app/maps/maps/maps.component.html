@@ -2,10 +2,11 @@
   [latitude]="lat"
   [longitude]="lng"
   [zoom]="zoom"
-
+  [mapTypeId]="'terrain'"
   [disableDefaultUI]="false"
-  [zoomControl]="false"
+  [zoomControl]="true"
   (mapClick)="mapClicked($event)">
+
 
   <agm-marker
       *ngFor="let m of markers; let i = index"
@@ -31,13 +32,13 @@
                        name="title" [(ngModel)]="title" required>
               </div>
               <div class="form-group">                   <!-- 'cols' is not working :( -->
-                <b><textarea matInput id="marker_body" rows="10" cols="70" placeholder="Leave a comment" name="body" [(ngModel)]="marker_body"></textarea></b>
+                <b><textarea matInput id="body" rows="10" cols="70" placeholder="Leave a comment" name="body" [(ngModel)]="body"></textarea></b>
               </div>
               <div class="form-group">
-                <b><label for="youtube_url">youtube link</label>: </b><input id="youtube_url" type="text" name="youtube_url" [(ngModel)]="youtube_url">
+                <b><label for="url">url </label>: </b><input id="url" type="text" name="url" [(ngModel)]="url">
               </div>
               <div title="upload image or video" style="float:left;">
-                <input id="uploaded_files" type="file" name="file" accept="image/*,video/*" name="files" [(ngModel)]="files" >
+                <input id="files" type="file" name="file" accept="image/*,video/*" name="files" [(ngModel)]="files" >
               </div>
               <br><br>
             </div> <!-- panel body -->
@@ -58,5 +59,7 @@
       [circleDraggable]="true"
       [editable]="true">
   </agm-circle>-->
+
+
 
 </agm-map>

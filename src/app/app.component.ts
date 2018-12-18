@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { MenuService } from './menu/menu-service/menu.service';
 import { MatDrawer } from '@angular/material/sidenav'
 import { UserService } from './user/user-service/user.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',

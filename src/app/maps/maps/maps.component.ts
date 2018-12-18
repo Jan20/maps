@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { NgForm } from '@angular/forms'
 //import { GoogleMap, GoogleMapsEvent, GoogleMapsLatLng }
+import * as firebase from 'firebase';
+
 
 @Component({
   selector: 'app-maps',
@@ -20,6 +22,7 @@ export class MapsComponent implements OnInit {
    // initial center position for the map
   public lat: number = 51.673858;
   public lng: number = 7.815982;
+  public mapTypeId: string = "TERRAIN";
 
 
   //////////////////
@@ -71,7 +74,10 @@ export class MapsComponent implements OnInit {
 
   saveNewMarker(newMarker: NgForm): void {
 
-     console.log(newMarker.value);
+    newMarker = newMarker.value;
+
+
+
 
   }
 
@@ -80,7 +86,7 @@ export class MapsComponent implements OnInit {
 	  {
 		  lat: 51.673858,
 		  lng: 7.815982,
-		  label: 'S',
+		  label: 'M',
 		  draggable: true
 	  },
   ]
@@ -96,5 +102,15 @@ interface marker {
 	lng: number;
 	label?: string;
 	draggable?: boolean;
-  iconUrl?:  object
+  iconUrl?:  object;
+}
+
+
+interface marker {
+
+	lat: number;
+	lng: number;
+	label?: string;
+	draggable?: boolean;
+  iconUrl?:  object;
 }
