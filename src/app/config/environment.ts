@@ -9,7 +9,6 @@ export const environment = {
 
         firebaseConfig: {
 
-          apiKey: 'AIzaSyCV73XSXm1w9x0O5iynNkBR4HF2TOVtw9c',
           authDomain: "maps-a82a0.firebaseapp.com",
           databaseURL: "https://maps-a82a0.firebaseio.com",
           projectId: "maps-a82a0",
