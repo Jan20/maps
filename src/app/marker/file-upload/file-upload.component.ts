@@ -12,14 +12,6 @@ import { UserService } from '../../user/user-service/user.service'
 })
 export class FileUploadComponent {
 
-  // Main task 
-  task: AngularFireUploadTask;
-
-  // Progress monitoring
-  percentage: Observable<number>;
-
-  snapshot: Observable<any>;
-
   // Download URL
   downloadURL: Observable<string>;
 
@@ -60,19 +52,22 @@ export class FileUploadComponent {
     const customMetadata = { app: 'My AngularFire-powered PWA!' };
 
     // The main task
-    this.task = this.angularFireStorage.upload(path, file, { customMetadata })
+    const task: AngularFireUploadTask = this.angularFireStorage.upload(path, file, { customMetadata })
 
     // Progress monitoring
-    this.percentage = this.task.percentageChanges();
-    this.snapshot   = this.task.snapshotChanges()
+    const percentage: Observable<number> = task.percentageChanges();
 
-    this.snapshot = this.task.snapshotChanges().pipe(
+    const snapshot = task.snapshotChanges().pipe(
+      
       tap(snap => {
+      
         if (snap.bytesTransferred === snap.totalBytes) {
+          
           // Update firestore on completion
           this.angularFirestore.collection(`users/${this.userService.user.uid}/marker`).add( { path, size: snap.totalBytes })
 
         }
+      
       })
     )
 
@@ -81,7 +76,7 @@ export class FileUploadComponent {
   }
 
   // Determines if the upload task is active
-  public isActive(snapshot): boolean {
+  public isActive(snapshot) {
   
     return snapshot.state === 'running' && snapshot.bytesTransferred < snapshot.totalBytes
   

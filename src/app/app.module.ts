@@ -10,7 +10,6 @@ import { Ng2GoogleChartsModule } from 'ng2-google-charts'
 import { AppComponent } from './app.component'
 import { ConfigModule } from './config/config.module'
 import { MaterialModule } from './config/material.module'
-import { LandingModule } from './landing/landing.module'
 import { MenuModule } from './menu/menu.module'
 import { UserModule } from './user/user.module'
 import { MapModule } from './map/map.module';
@@ -45,7 +44,6 @@ import { MarkerModule } from './marker/marker.module'
     ConfigModule,
     UserModule,
     MenuModule,
-    LandingModule,
     MapModule,
     ToolbarModule,
     BrowserModule,

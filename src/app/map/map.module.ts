@@ -4,13 +4,17 @@ import { MapComponent } from './map/map.component'
 import { BrowserModule } from '@angular/platform-browser'
 import { AgmCoreModule } from '@agm/core'
 import { ToolbarModule } from '../toolbar/toolbar.module';
-import { googleMapsApiKey } from '../config/google-maps-api-key';
+import { environment } from '../config/environment';
 
 @NgModule({
+  
   imports: [
+  
     CommonModule,
     BrowserModule,AgmCoreModule.forRoot({
-      apiKey: googleMapsApiKey
+    
+      apiKey: environment.googleMaps.apiKey
+    
     }),
     ToolbarModule,
   ],

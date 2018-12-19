@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user/user-service/user.service'
 import { User } from '../../user/interfaces/user';
-import { Friend } from '../interfaces/friend';
 import { FriendsService } from '../services/friend.service';
-
 
 @Component({
   selector: 'app-friend',
@@ -17,6 +15,9 @@ export class FriendComponent implements OnInit {
   ///////////////
   public users: User[] = []
 
+  //////////////////
+  // Constructors //
+  //////////////////
   constructor(
 
     private userService: UserService,
@@ -36,7 +37,6 @@ export class FriendComponent implements OnInit {
   ///////////////
   public addFriend(uid: string): void {
 
-    console.log(uid)
     this.friendsService.addFriend(uid)
 
   }
