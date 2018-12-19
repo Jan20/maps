@@ -60,4 +60,6 @@ typings/
 # next.js build output
 .next
 
+/src/app/config/environment.ts
 src/app/config/environment.ts
+*./environment.ts
